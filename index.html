@@ -10,9 +10,11 @@
 <body>
 
     <main>
-
         <h1 class="center">The Guessing Game</h1>
         <p class="center">Guess a number between 1-100</p>
+
+        
+        
 
     <section class="container">
 
@@ -28,12 +30,27 @@
                     <button class="btn">Continue</button>
                     <button class="btn btn-restart">Restart</button>
                 </div>
-            </form>            
+                <div class="darkModeBtn">
+                    <div>
+                        <p>
+                            <strong>
+                                 <i class="fas fa-hand-point-down"></i> Toggle me <i class="fas fa-hand-point-down"></i>
+                            </strong>
+                      </p>
+                    </div>
+                    
+                    <div class="toggle">
+                      <input type="checkbox" id="toggle" />
+                      <label for="toggle"></label>
+                    </div>
+                </div>
+            </form>  
+                      
         </div>
+
     </section>
-        
     </main>
-    
     <script src="script.js"></script>
+
 </body>
 </html>
