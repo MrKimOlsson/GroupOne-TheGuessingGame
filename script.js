@@ -1,4 +1,6 @@
+
 // ------------ DECLAIRATIONS ------------
+
 // DECLAIR REFERENCES TO HTML ELEMENTS
 const form = document.querySelector('.card');
 const retry = document.querySelector('.btn-retry');
@@ -8,6 +10,7 @@ let storeGuess = [];
 let guessedNumbersAre = document.querySelector(".guessedNumbersAre");
 let playerGuess = document.querySelector('#playerGuess');
 let answer = document.querySelector('.answer');
+
 let randomNumber = Math.floor(Math.random() * 100) + 1
 let clicks = null
 console.log(randomNumber, 'random number');
@@ -15,15 +18,13 @@ console.log(randomNumber, 'random number');
 
 // ------------ FUNCTIONS ------------
 
-
-
-
 // HANDLE THE PLAYER GUESS
 const validateNumber = (input) => {
 
     // COUNTS THE CLICKS
     clicks++
     console.log(clicks, 'number of guesses');
+
 
     // IF GUESS IS CORRECT
     if (input.value == randomNumber) {
@@ -62,6 +63,7 @@ const changeText = (element, text) => {
 }
 changeText(answer, '')
 
+
 // ------------ LISTENERS ------------
 
 // LISTENING FOR GUESS BUTTON CLICK
@@ -69,6 +71,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
     validateNumber(playerGuess)
 })
+
 
 // LISTENING FOR RETRY BUTTON CLICK
 retry.addEventListener('click', (e) => {
@@ -82,22 +85,6 @@ retry.addEventListener('click', (e) => {
     clicks = ''
     storeGuess = []
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // DARK MODE
 
