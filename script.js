@@ -1,8 +1,8 @@
 // Variables
-const storeGuess = []
-const form = document.querySelector('#card')
+const form = document.querySelector('.card')
 const retry = document.querySelector('.btn-retry');
 const btn = document.querySelector('.btn')
+let storeGuess = []
 let guessedNumbersAre = document.querySelector(".guessedNumbersAre")
 let playerGuess = document.querySelector('#playerGuess')
 let answer = document.querySelector('.answer')
@@ -16,6 +16,7 @@ const validateNumber = (input) => {
     clicks++
     console.log(clicks, 'number of guesses');
 
+
     if (input.value == randomNumber) {
         changeText(answer, `Correct! It took you: ${clicks} tries.`)
         document.querySelector('.btn').disabled = true;
@@ -28,6 +29,7 @@ const validateNumber = (input) => {
     if (clicks > 10) {
         console.error('game over');
         changeText(answer, 'GAME OVER. Restart the game.')
+        btn.disabled = true;
     }
 
     storeGuess.push(playerGuess.value)
@@ -42,12 +44,13 @@ const changeText = (element, text) => {
 }
 changeText(answer, '')
 
-btn.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault()
     validateNumber(playerGuess)
 })
 
-retry.addEventListener('click', () => {
+retry.addEventListener('click', (e) => {
+    e.preventDefault()
     console.clear();
     changeText(answer, '')
     changeText(guessedNumbersAre, '')
@@ -55,4 +58,5 @@ retry.addEventListener('click', () => {
     console.log(randomNumber);
     btn.disabled = false;
     clicks = ''
+    storeGuess = []
 })
