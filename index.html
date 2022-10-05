@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GroupOne - TheGuessingGame</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main>
+      <h1 class="center">The Guessing Game</h1>
+      <p class="center">Guess a number between 1-100</p>
+
 
         <h1 class="center">The Guessing Game</h1>
         <p class="center">Guess a number between 1-100</p>
@@ -28,11 +30,27 @@
                     <button class="btn btn-restart">Restart</button>
                 </div>
             </form>
+      <section class="container">
+        <div class="wrapper center">
+          <form id="card">
+            <div class="input-group">
+              <h3>The game</h3>
+              <label for="playerGuess" class="guess-label"
+                >Make your guess:</label
+              >
+              <input type="text" class="guess" required id="playerGuess" />
+            </div>
+            <div>
+              <h5>Guessed numbers are <span class="guessedNumbersAre"></span></h5>
+              <button class="btn">Start</button>
+              <button class="btn">Continue</button>
+              <button class="btn btn-blue retry">Retry</button>
+            </div>
+          </form>
         </div>
-    </section>
-        
+      </section>
     </main>
-    
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,3 +1,4 @@
+
 let randomNumber = Math.floor(Math.random() * 100) + 1
 console.log(randomNumber);
 
@@ -22,3 +23,14 @@ form.addEventListener('submit', (e) => {
     validateNumber(playerGuess)
 })
 
+const retry = document.querySelector(".retry");
+const guessedNumbersAre =document.querySelector(".guessedNumbersAre")
+
+retry.addEventListener(click, () => {
+    message.innerHTML = "";
+    
+    // guessedNumbers = []
+     // guessedNumbersAre.innerHTML ="";
+    // showHighScore()
+   
+})
