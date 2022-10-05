@@ -59,8 +59,6 @@ h1 {
 }
 
 /* DARKMODE STYLING */
-
-
 .dark-mode{
     background-color: rgb(33, 33, 33);
     color: white;
@@ -124,9 +122,9 @@ body {
     z-index: inherit;
 }
 
-/* .guessedNumbersAre {
+.guessedNumbersAre {
     padding-bottom: 1rem;
-} */
+}
 
 .btn {
     border-radius: 50%;
