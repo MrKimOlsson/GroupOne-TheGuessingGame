@@ -1,36 +1,58 @@
-
-let randomNumber = Math.floor(Math.random() * 100) + 1
-console.log(randomNumber);
-
+// Variables
+const storeGuess = []
 const form = document.querySelector('#card')
-const playerGuess = document.querySelector('#playerGuess')
+const retry = document.querySelector('.btn-retry');
+const btn = document.querySelector('.btn')
+let guessedNumbersAre = document.querySelector(".guessedNumbersAre")
+let playerGuess = document.querySelector('#playerGuess')
+let answer = document.querySelector('.answer')
+let randomNumber = Math.floor(Math.random() * 100) + 1
+let clicks = null
+console.log(randomNumber, 'random number');
+
 
 const validateNumber = (input) => {
-        if (input.value == randomNumber) {
-        console.log('rätt');
+
+    clicks++
+    console.log(clicks, 'number of guesses');
+
+    if (input.value == randomNumber) {
+        changeText(answer, `Correct! It took you: ${clicks} tries.`)
+        document.querySelector('.btn').disabled = true;
     } else if (input.value < randomNumber) {
-        console.log('får lågt');
+        changeText(answer, 'Your guess was too low')
     } else if (input.value > randomNumber) {
-        console.log('för högt');
+        changeText(answer, 'Your guess was too high')
     }
 
+    if (clicks > 10) {
+        console.error('game over');
+        changeText(answer, 'GAME OVER. Restart the game.')
+    }
+
+    storeGuess.push(playerGuess.value)
+    guessedNumbersAre.innerText = storeGuess
+    console.log(storeGuess);
     input.value = ''
+    
 }
 
+const changeText = (element, text) => {
+    element.innerText = text
+}
+changeText(answer, '')
 
-form.addEventListener('submit', (e) => {
+btn.addEventListener('click', (e) => {
     e.preventDefault()
     validateNumber(playerGuess)
 })
 
-const retry = document.querySelector(".retry");
-const guessedNumbersAre =document.querySelector(".guessedNumbersAre")
-
-retry.addEventListener(click, () => {
-    message.innerHTML = "";
-    
-    // guessedNumbers = []
-     // guessedNumbersAre.innerHTML ="";
-    // showHighScore()
-   
+retry.addEventListener('click', () => {
+    console.clear();
+    changeText(answer, '')
+    changeText(guessedNumbersAre, '')
+    randomNumber = Math.floor(Math.random() * 100) + 1
+    console.log(randomNumber);
+    btn.disabled = false;
+    clicks = ''
 })
