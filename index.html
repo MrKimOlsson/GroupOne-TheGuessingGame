@@ -1,50 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GroupOne - TheGuessingGame</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
 
-<<<<<<< HEAD
-=======
-    <section class="container">
-        <div class="wrapper center">             
-            <form id="card">
-                <div class="input-group">
-                    <h3>You guessed:</h3>
-                    <p class="scoreOutput">Guessed number array output here</p>
-                </div>              
-            </form> 
-        </div>
-
-        <!-- GAME CARD -->
-        <div class="wrapper center">
-            <form id="card">
-                <div class="input-group">
-                    <h3>The game</h3>
-                    <label for="playerGuess" class="guess-label">Make your guess:</label>
-                    <input type="number" class="guess" required id="playerGuess" min="1" max="100">
-                </div>
+        <!-------------- LOGO SECTION -------------->
         
-                <div>
-                    <button class="btn">Guess</button>
-                    <button class="btn-retry">Retry</button>
-                </div>
-                <div class="answer"><p></p></div>
-                <h5>Guessed numbers are <span class="guessedNumbersAre"></span></h5>
-            </form>
-<<<<<<< HEAD
-        </div>
+        <section class="logoSection">
+            <div>
+                <img src="img/logo.png" alt="bild av logo">
+            </div>
+            <div class="darkBtnSection">
+                <button class="dark-mode-btn">Dark mode</button>
+            </div>
+        </section>
 
-        <!-- SCOREBOARD CARD -->
-        <div class="wrapper center">
-            <form id="card">
-                <div class="input-group">
-                    <h3>Scoreboard</h3>
-                    <p class="scoreOutput">Score output here</p>
-                </div>              
-            </form>         
-        </div>
-      </section>
-=======
->>>>>>> alex
-    </main>
+        
 
+        <!-------------- CARD ONE - GUESSED NUMBERS -------------->
+        <section class="container">
+            <div class="wrapper center">             
+                <form id="card">
+                    <h2>You guessed:</h2>
+                    <div class="input-group">                      
+                        <!-- OUTPUT -->
+                        <div class="guessedNumbersAre"><p>You have not made a guess yet</p></div>
+                        <div class="answer"><p>Can you guess the correct number?</p></div>
+                        <h2>Amount of guesses left:</h2>
+
+                    </div>              
+                </form> 
+            </div>
+
+            <!-------------- CARD TWO - THE GAME -------------->
+            <div class="wrapper center">
+                <form id="card" class="card">
+                    <h2 class="center">The Guessing Game</h2>
+                    <div class="input-group">
+                        <p class="center">Guess a number between 1-100</p>
+                        <!-- <h3>The game</h3> -->
+                        <label for="playerGuess" class="guess-label">Make your guess:</label>
+                        <input type="number" class="guess" required id="playerGuess" min="1" max="100" autocomplete="off">
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="gameBtns">
+                        <button class="btn btn-guess">Guess</button>
+                        <button class="btn btn-retry">Retry</button>
+                    <!-- </div> -->
+                    
+                        <!-- <h5>Guessed numbers are <span class="guessedNumbersAre"></span></h5>  -->
+
+                    </div>                                    
+                </form>
+            </div>
+
+            <!-------------- CARD THREE - SCORE BOARD -------------->
+            <div class="wrapper center">
+                <form id="card">
+                    <h2>Scoreboard</h2>
+                    <div class="input-group">
+                       <!-- OUTPUT -->
+                        <p class="scoreOutput">Score output here</p>
+                    </div>              
+                </form>         
+            </div>
+        </section>
+
+        <!-------------- FOOTER -------------->
+        <footer>
+            <div class="footerInfo">
+                <h4>Made by Group-One</h3>
+                    <p id="groupNames">Alex, George, Kim, Lotta, Mikael & Ulrika</p>
+                    <p id="rights">All rights reserved, except for playing the game!</p>
+            </div>
+            <div class="footerShape">
+                
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+                    </svg>
+            </div>
+            <!-- <div>
+                <h4>Made by Group-One</h3>
+                <p id="groupNames">Alex, George, Kim, Lotta, Mikael & Ulrika</p>
+                <p id="rights">All rights reserved, except for playing the game!</p>
+            </div> -->
+        </footer>
+        
+    <!-------------- SCRIPT LINK -------------->
     <script src="script.js"></script>
   </body>
 </html>
->>>>>>> f82dd10c5af7ff20552a3c324c304173d12a6769
