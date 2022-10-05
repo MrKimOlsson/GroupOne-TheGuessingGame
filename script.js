@@ -26,6 +26,7 @@
 
 
 
+
 //Check if Game is over
 function CheckIsGameOver (lifLine) {
 if (lifLine === 0) {
@@ -35,3 +36,17 @@ if (lifLine === 0) {
 }
 
 }
+
+
+const retry = document.querySelector(".retry");
+const guessedNumbersAre =document.querySelector(".guessedNumbersAre")
+
+retry.addEventListener(click, () => {
+    message.innerHTML = "";
+    
+    // guessedNumbers = []
+     // guessedNumbersAre.innerHTML ="";
+    // showHighScore()
+   
+})
+
