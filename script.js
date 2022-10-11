@@ -85,14 +85,30 @@ retry.addEventListener('click', (e) => {
     clicks = ''
     storeGuess = []
 })
-
+let dark = false;
 // DARK MODE
 
 const darkModeFunction = () => {
     let element = document.body;
-    element.classList.toggle("dark-mode");
+    element.classList.toggle('dark-mode');
+    changeText(darkModeBtn, 'Light mode');
+    dark = true;
+}
+
+const lightModeFunction = () => {
+    let element = document.body;
+    element.classList.remove('dark-mode')
+    changeText(darkModeBtn, 'Dark mode')
+    dark = false;
 }
 
 darkModeBtn.addEventListener('click', (e) => {
-    darkModeFunction();
+    
+    if(dark == true){
+         lightModeFunction();
+
+    } else {
+        darkModeFunction();
+    }
+    
 })
