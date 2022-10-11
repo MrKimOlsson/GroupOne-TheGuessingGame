@@ -24,10 +24,7 @@ body {
         linear-gradient(rgb(238, 19, 19), transparent),
         linear-gradient(to top left, rgb(249, 87, 176), transparent),
         linear-gradient(to top right, rgb(214, 123, 18), transparent);
-        background-blend-mode: screen;  
-        /* height: 100%;
-        margin: 0; */
- 
+        background-blend-mode: screen;   
 }
 
 
@@ -98,10 +95,6 @@ h2 {
 }
 
 /* DARKMODE STYLING */
-/* .dark-mode{ */
-    /* background-color: rgb(33, 33, 33); */
-    /* color: white; */
-  /* } */
   
 .dark-mode .dark-mode-btn {
     background-color: #00000061;
