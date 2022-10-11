@@ -56,6 +56,15 @@ h1 {
     height: 2.5vw;
     width: 6vw;    
     box-shadow: 4px 4px 6px #00000025;
+    transition: opacity 0.25s;
+}
+
+.dark-mode-btn:hover{
+    opacity: 0.7;
+}
+
+.dark-mode-btn:active{
+    opacity: 0.2;
 }
 
 /* DARKMODE STYLING */
