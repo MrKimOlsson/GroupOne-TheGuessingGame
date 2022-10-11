@@ -84,7 +84,7 @@ h2 {
 /*-------------- DARK-MODE BUTTON --------------*/
 .dark-mode-btn{
     position: absolute;
-    background-color: #00000031;
+    background-color: #0000005d;
     color: rgb(221, 221, 221);
     padding: .6em;
     border-radius: 8%;
@@ -98,11 +98,11 @@ h2 {
     transition: opacity 0.25s;
 }
 
-.dark-mode-btn:hover{
+button:hover{
     opacity: 0.7;
 }
 
-.dark-mode-btn:active{
+button:active{
     opacity: 0.2;
 }
 
@@ -208,6 +208,21 @@ color: white;
 
 .guess {
     width: 6.5rem;
+}
+
+.guess:invalid{
+    animation: shake 300ms;
+}
+@keyframes shake{
+25%{
+    transform: translateX(4px)
+}
+50%{
+    transform: translateX(-4px)
+}
+75%{
+    transform: translateX(4px)
+}
 }
 
  /*-------------- FOOTER --------------*/
