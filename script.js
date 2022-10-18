@@ -1,6 +1,4 @@
-
 // ------------ DECLAIRATIONS ------------
-
 // DECLAIR REFERENCES TO HTML ELEMENTS
 const form = document.querySelector('.card');
 const retry = document.querySelector('.btn-retry');
@@ -10,50 +8,77 @@ let storeGuess = [];
 let guessedNumbersAre = document.querySelector(".guessedNumbersAre");
 let playerGuess = document.querySelector('#playerGuess');
 let answer = document.querySelector('.answer');
-
+let counter = document.querySelector('.counter');
+let scoreOutput = document.querySelector('.score')
 let randomNumber = Math.floor(Math.random() * 100) + 1
 let clicks = null
+let count = 10;
+let scores = [];
+let win = null;
+let winns = 0;
+let dark = false;
 console.log(randomNumber, 'random number');
 
-
 // ------------ FUNCTIONS ------------
+
+const randomizerFunction = () => {
+    randomNumber = Math.floor(Math.random() * 100) + 1
+    console.log('Random number is: ' + randomNumber);
+}
+
+const clearFunction = () => {
+    console.clear();
+    changeText(answer, '')
+    changeText(guessedNumbersAre, '')
+    clicks = ''
+    count = 10;
+}
+
+const scoreboard = () => {    
+        curentScore = 10 + 10 * count;
+        scores.push(curentScore);
+        changeText(scoreOutput, scores)
+}
 
 // HANDLE THE PLAYER GUESS
 const validateNumber = (input) => {
 
     // COUNTS THE CLICKS
-    clicks++
+    clicks++;
     console.log(clicks, 'number of guesses');
-
+    
+    // COUNTDOWN number of guesses left
+    count--;
+    changeText(counter, 'You have ' + count + ' guesses left')
 
     // IF GUESS IS CORRECT
     if (input.value == randomNumber) {
         changeText(answer, `Correct! It took you: ${clicks} tries.`)
         document.querySelector('.btn').disabled = true;
+        scoreboard();
 
-    // IF GUESS IS TO LOW
-    } else if (input.value < randomNumber) {
-        changeText(answer, 'Your guess was too low')
+        // IF GUESS IS TO LOW
+        if(input.value < randomNumber) {
+            changeText(answer, 'Your guess was too low')
+        }
+        // IF GUESS IS TO HIGH
+        } else if (input.value > randomNumber) {
+            changeText(answer, 'Your guess was too high')
+        }
 
-    // IF GUESS IS TO HIGH
-    } else if (input.value > randomNumber) {
-        changeText(answer, 'Your guess was too high')
+        // GAME OVER - IF CLICKS ARE = 10
+        else if (clicks == 10 || count == 0) {
+            console.error('game over');
+            changeText(answer, 'GAME OVER. Restart the game.')
+            btn.disabled = true;
+        }
+
+            // STORE THE GUESSES IN AN ARRAY
+            storeGuess.push(playerGuess.value)
+            guessedNumbersAre.innerText = storeGuess;
+            console.log(storeGuess);
+            input.value = ''        
     }
-
-    // GAME OVER - IF CLICKS ARE = 10
-    if (clicks == 10) {
-        console.error('game over');
-        changeText(answer, 'GAME OVER. Restart the game.')
-        btn.disabled = true;
-    }
-
-        // STORE THE GUESSES IN AN ARRAY
-        storeGuess.push(playerGuess.value)
-        guessedNumbersAre.innerText = storeGuess;
-        console.log(storeGuess);
-    input.value = ''
-    
-}
 
 // ------------ TEXT OUTPUT CHANGERS ------------
 
@@ -63,7 +88,6 @@ const changeText = (element, text) => {
 }
 changeText(answer, '')
 
-
 // ------------ LISTENERS ------------
 
 // LISTENING FOR GUESS BUTTON CLICK
@@ -72,22 +96,17 @@ form.addEventListener('submit', (e) => {
     validateNumber(playerGuess)
 })
 
-
 // LISTENING FOR RETRY BUTTON CLICK
 retry.addEventListener('click', (e) => {
-    e.preventDefault()
-    console.clear();
-    changeText(answer, '')
-    changeText(guessedNumbersAre, '')
-    randomNumber = Math.floor(Math.random() * 100) + 1
-    console.log(randomNumber);
+    e.preventDefault();
+    clearFunction();
+    randomizerFunction();
     btn.disabled = false;
-    clicks = ''
+    changeText(counter, 'You have ' + count + ' guesses left')
     storeGuess = []
 })
-let dark = false;
-// DARK MODE
 
+// DARK MODE
 const darkModeFunction = () => {
     let element = document.body;
     element.classList.toggle('dark-mode');
@@ -110,5 +129,4 @@ darkModeBtn.addEventListener('click', (e) => {
     } else {
         darkModeFunction();
     }
-    
 })
