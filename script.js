@@ -51,33 +51,33 @@ const validateNumber = (input) => {
     count--;
     changeText(counter, 'You have ' + count + ' guesses left')
 
-    // IF GUESS IS CORRECT
-    if (input.value == randomNumber) {
+    
+    // IF GAME OVER
+    if(clicks == 10 || count == 0) {
+        console.error('game over');
+        changeText(answer, 'GAME OVER. Restart the game.')
+        btn.disabled = true;
+
+        // IF GUESS IS CORRECT
+        } else if(input.value == randomNumber) {
         changeText(answer, `Correct! It took you: ${clicks} tries.`)
         document.querySelector('.btn').disabled = true;
         scoreboard();
 
         // IF GUESS IS TO LOW
-        if(input.value < randomNumber) {
+        }else if(input.value < randomNumber) {
             changeText(answer, 'Your guess was too low')
         }
         // IF GUESS IS TO HIGH
-        } else if (input.value > randomNumber) {
+        else if (input.value > randomNumber) {
             changeText(answer, 'Your guess was too high')
         }
 
-        // GAME OVER - IF CLICKS ARE = 10
-        else if (clicks == 10 || count == 0) {
-            console.error('game over');
-            changeText(answer, 'GAME OVER. Restart the game.')
-            btn.disabled = true;
-        }
-
-            // STORE THE GUESSES IN AN ARRAY
-            storeGuess.push(playerGuess.value)
-            guessedNumbersAre.innerText = storeGuess;
-            console.log(storeGuess);
-            input.value = ''        
+        // STORE THE GUESSES IN AN ARRAY
+        storeGuess.push(playerGuess.value)
+        guessedNumbersAre.innerText = storeGuess;
+        console.log(storeGuess);
+        input.value = ''        
     }
 
 // ------------ TEXT OUTPUT CHANGERS ------------
