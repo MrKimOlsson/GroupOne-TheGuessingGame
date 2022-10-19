@@ -142,7 +142,7 @@ color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 4vw;
+    margin-top: 6vw;
     margin-left: 8vw;
     margin-right: 8vw;
     z-index: 3;
@@ -216,7 +216,6 @@ color: white;
 }
 }
 
-
  /*-------------- FOOTER --------------*/
 
  .footerWave {
@@ -278,6 +277,22 @@ footer {
 }
 
  /*-------------- MEDIA QUERIES --------------*/
+
+ @media (min-width:2000px) { 
+    
+    .container {
+        margin-top: 8vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+
+    }     
+    #card {
+        min-width: 500px;
+        max-width: 500px;
+        min-height: 500px;
+        max-height: 500px;
+    }  
+}
 
 @media (max-width:1475px) { 
     
